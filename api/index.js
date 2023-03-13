@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import authRoute from './routes/auth.js'
 import usersRoute from './routes/users.js'
 import hotelsRoute from './routes/hotels.js'
+import cookieParser from 'cookie-parser';
 import roomsRoute from './routes/rooms.js'
 
 const app = express();
@@ -23,6 +24,8 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middleware
+
+app.use(cookieParser());
 
 app.use(express.json());
 
