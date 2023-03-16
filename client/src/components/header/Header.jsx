@@ -94,6 +94,7 @@ const Header = ({ type }) => {
                                 <FaBed className='headerIcon' />
 
                                 <input type="text"
+                                    style={{ textTransform: "capitalize" }}
                                     placeholder='where are you going?'
                                     className="headerSearchInput"
                                     onChange={e => setDestination(e.target.value)} />
