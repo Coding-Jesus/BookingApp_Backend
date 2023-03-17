@@ -7,10 +7,11 @@ import { BiCalendar } from 'react-icons/bi';
 import { SiYourtraveldottv } from 'react-icons/si';
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { SearchContext } from '../../context/SearchContext';
+import { AuthContext } from '../../context/AuthContext';
 
 
 const Header = ({ type }) => {
@@ -43,6 +44,7 @@ const Header = ({ type }) => {
 
     const navigate = useNavigate();
     const { dispatch } = useContext(SearchContext);
+    const { user } = useContext(AuthContext);
 
     const handleSearch = () => {
         dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
@@ -90,6 +92,11 @@ const Header = ({ type }) => {
                             Get rewarded for your travels  unlock instant savings of 10% or
                             more with a free FlashBooks account.
                         </p>
+                        {!user &&
+                            <Link to="/Login">
+                                <button className='headerBtn'>Sign-in / Register</button>
+                            </Link>
+                        }
                         <div className="headerSearch"
                         >
                             <div className="headerSearchItem loc"

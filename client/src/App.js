@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import Hotels from "./pages/hotel/Hotels";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/hotels" element={<List />} />
         <Route path="/hotels/:id" element={<Hotels />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
